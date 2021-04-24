@@ -51,6 +51,10 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\DeclareObject.cs" />
+    <Compile Include="Util\GameObject.cs" />
+    <Compile Include="Util\Transform.cs" />
+    <Compile Include="Util\Vector3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
