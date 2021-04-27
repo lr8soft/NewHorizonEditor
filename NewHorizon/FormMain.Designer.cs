@@ -32,7 +32,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.originObjectGroup = new System.Windows.Forms.GroupBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.declareTreeView = new System.Windows.Forms.TreeView();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.buttonAddOrigin = new System.Windows.Forms.Button();
             this.buttonDeleteOrigin = new System.Windows.Forms.Button();
@@ -133,7 +133,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer3.Panel1.Controls.Add(this.declareTreeView);
             // 
             // splitContainer3.Panel2
             // 
@@ -142,13 +142,13 @@
             this.splitContainer3.SplitterDistance = 207;
             this.splitContainer3.TabIndex = 0;
             // 
-            // treeView1
+            // declareTreeView
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(252, 207);
-            this.treeView1.TabIndex = 0;
+            this.declareTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.declareTreeView.Location = new System.Drawing.Point(0, 0);
+            this.declareTreeView.Name = "declareTreeView";
+            this.declareTreeView.Size = new System.Drawing.Size(252, 207);
+            this.declareTreeView.TabIndex = 0;
             // 
             // splitContainer4
             // 
@@ -232,6 +232,7 @@
             this.InstanceObjectTreeView.Name = "InstanceObjectTreeView";
             this.InstanceObjectTreeView.Size = new System.Drawing.Size(532, 325);
             this.InstanceObjectTreeView.TabIndex = 0;
+            this.InstanceObjectTreeView.DoubleClick += new System.EventHandler(this.InstanceObjectTreeView_DoubleClick);
             // 
             // splitContainer6
             // 
@@ -262,6 +263,7 @@
             this.buttonAddInstance.TabIndex = 0;
             this.buttonAddInstance.Text = "添加实例";
             this.buttonAddInstance.UseVisualStyleBackColor = true;
+            this.buttonAddInstance.Click += new System.EventHandler(this.buttonAddInstance_Click);
             // 
             // buttonDeleteInstance
             // 
@@ -296,7 +298,7 @@
             // 打开OToolStripMenuItem
             // 
             this.打开OToolStripMenuItem.Name = "打开OToolStripMenuItem";
-            this.打开OToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.打开OToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.打开OToolStripMenuItem.Text = "打开项目(O)";
             this.打开OToolStripMenuItem.Click += new System.EventHandler(this.打开OToolStripMenuItem_Click);
             // 
@@ -312,13 +314,13 @@
             // 撤销ToolStripMenuItem
             // 
             this.撤销ToolStripMenuItem.Name = "撤销ToolStripMenuItem";
-            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.撤销ToolStripMenuItem.Text = "撤销";
             // 
             // 重做ToolStripMenuItem
             // 
             this.重做ToolStripMenuItem.Name = "重做ToolStripMenuItem";
-            this.重做ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.重做ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.重做ToolStripMenuItem.Text = "重做";
             // 
             // FormMain
@@ -370,14 +372,11 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox originObjectGroup;
         private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox instanceObjectGroup;
         private System.Windows.Forms.SplitContainer splitContainer5;
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.Button buttonAddInstance;
         private System.Windows.Forms.Button buttonDeleteInstance;
-        private System.Windows.Forms.TreeView InstanceObjectTreeView;
-        private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.Button buttonAddOrigin;
         private System.Windows.Forms.Button buttonDeleteOrigin;
@@ -387,6 +386,9 @@
         private System.Windows.Forms.ToolStripMenuItem 编辑EToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 撤销ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重做ToolStripMenuItem;
+        public System.Windows.Forms.TreeView declareTreeView;
+        public System.Windows.Forms.TreeView InstanceObjectTreeView;
+        public System.Windows.Forms.TreeView treeView2;
     }
 }
 

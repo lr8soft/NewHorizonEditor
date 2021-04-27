@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormInstance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInstance.Designer.cs">
+      <DependentUpon>FormInstance.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,9 +60,14 @@
     <Compile Include="Util\DeclareObject.cs" />
     <Compile Include="Util\GameObject.cs" />
     <Compile Include="Util\Transform.cs" />
+    <Compile Include="Util\TreeNodeDeclared.cs" />
+    <Compile Include="Util\TreeNodeInstanced.cs" />
     <Compile Include="Util\Vector3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormInstance.resx">
+      <DependentUpon>FormInstance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

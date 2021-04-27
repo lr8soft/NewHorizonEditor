@@ -19,6 +19,8 @@ namespace NewHorizon
         public static Dictionary<string, DeclareObject> declareObjects = new Dictionary<string, DeclareObject>();
         public static List<GameObject> instanceObjects = new List<GameObject>();
 
+
+
         public FormMain()
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace NewHorizon
                 assetsPath = dialog.SelectedPath;
 
                 LoadAssetsFolder();
+                LoadUIData();
             }
 
         }
@@ -110,6 +113,42 @@ namespace NewHorizon
 
         }
 
+        private void LoadUIData()
+        {
+            Dictionary<string, TreeNode> instanceParents = new Dictionary<string, TreeNode>();
+            if (declareObjects.Count > 0)
+            {
+                TreeNodeCollection treeNodeCollection =  declareTreeView.Nodes;
+                TreeNodeCollection instanceCollection = InstanceObjectTreeView.Nodes;
+                foreach (var declareObject in declareObjects)
+                {
+                    TreeNodeDeclared treeNodeDeclared = new TreeNodeDeclared();
+                    treeNodeDeclared.DeclareObject = declareObject.Value;
+                    treeNodeCollection.Add(treeNodeDeclared);
+
+                    TreeNode treeNodeInstanceParent = new TreeNode();
+                    treeNodeInstanceParent.Text = declareObject.Value.declareName;
+                    instanceCollection.Add(treeNodeInstanceParent);
+                    instanceParents.Add(declareObject.Value.declareName, treeNodeInstanceParent);
+                }
+            }
+
+            if (instanceParents.Count > 0 && instanceObjects.Count > 0)
+            {
+                foreach (var gameObject in instanceObjects)
+                {
+                    TreeNode parentNode = instanceParents[gameObject.DeclareObject.declareName];
+
+                    TreeNodeInstanced treeNodeInstanced = new TreeNodeInstanced();
+                    treeNodeInstanced.InstanceObject = gameObject;
+
+                    parentNode.Nodes.Add(treeNodeInstanced);
+
+                }
+            }
+
+        }
+
         public float[] GetVector3FromJson(JToken jToken, string name)
         {
             float[] info = new float[3];
@@ -122,6 +161,34 @@ namespace NewHorizon
             }
 
             return info;
+        }
+
+        private void InstanceObjectTreeView_DoubleClick(object sender, EventArgs e)
+        {
+            TreeView treeView = (TreeView)sender;
+            TreeNode selectedNode = treeView.SelectedNode;
+
+            if (selectedNode is TreeNodeInstanced)
+            {
+                TreeNodeInstanced treeNodeInstanced = (TreeNodeInstanced)selectedNode;
+            }
+        }
+
+        private void buttonAddInstance_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = InstanceObjectTreeView.SelectedNode;
+            if (selectedNode == null)
+            {
+                MessageBox.Show("未选中节点", "信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (selectedNode is TreeNodeInstanced)
+            {
+                MessageBox.Show("实例无法再次添加实例", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
         }
     }
 }
