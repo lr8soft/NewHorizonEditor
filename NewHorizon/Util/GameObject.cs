@@ -5,17 +5,23 @@ using System.Text;
 
 namespace NewHorizon.Util
 {
-    public class GameObject
+    public class GameObject: ICloneable
     {
-        public DeclareObject DeclareObject;
-        public string TagName;
-        public Transform Transform;
+        public DeclareObject DeclareObject { get; set; }
+        public string TagName { get; set; }
+        public Transform Transform { get; set; }
+
 
         public GameObject(DeclareObject declareObject, string tagName, Transform transform)
         {
             this.DeclareObject = declareObject;
             this.TagName = tagName;
             this.Transform = transform;
+        }
+
+        public object Clone()
+        {
+            return new GameObject(DeclareObject, TagName, (Transform)Transform.Clone());
         }
     }
 }

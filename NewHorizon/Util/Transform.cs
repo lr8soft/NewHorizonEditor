@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NewHorizon.Util
 {
-    public class Transform
+    public class Transform: ICloneable
     {
         public Transform()
         {
@@ -17,5 +17,14 @@ namespace NewHorizon.Util
         public Vector3 Position { get; set; }
         public Vector3 Rotation { get; set; }
         public Vector3 Scale { get; set; }
+
+        public object Clone()
+        {
+            Transform transform = new Transform();
+            transform.Position = (Vector3)Position.Clone();
+            transform.Rotation = (Vector3)Rotation.Clone();
+            transform.Scale = (Vector3)Scale.Clone();
+            return transform;
+        }
     }
 }

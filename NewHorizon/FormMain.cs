@@ -171,6 +171,16 @@ namespace NewHorizon
             if (selectedNode is TreeNodeInstanced)
             {
                 TreeNodeInstanced treeNodeInstanced = (TreeNodeInstanced)selectedNode;
+
+                GameObject newObject = (GameObject)treeNodeInstanced.InstanceObject.Clone();
+
+                FormInstance formInstance = new FormInstance(newObject); //根据节点的object信息修改
+                if (formInstance.ShowDialog() == DialogResult.OK)
+                {
+
+                    treeNodeInstanced.InstanceObject = newObject;
+                }
+
             }
         }
 
@@ -188,6 +198,12 @@ namespace NewHorizon
                 return;
             }
 
+            FormInstance formInstance = new FormInstance(null);
+            if(formInstance.ShowDialog() == DialogResult.OK)
+            {
+
+
+            }
 
         }
     }

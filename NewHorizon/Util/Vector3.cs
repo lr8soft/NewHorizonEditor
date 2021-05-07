@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NewHorizon.Util
 {
-    public class Vector3
+    public class Vector3:ICloneable
     {
         public Vector3(float x, float y, float z)
         {
@@ -21,5 +21,10 @@ namespace NewHorizon.Util
         public float X { get; set; }
         public float Y { get; set; }
         public float Z { get; set; }
+
+        public object Clone()
+        {
+            return new Vector3(X, Y, Z);
+        }
     }
 }
