@@ -126,8 +126,9 @@ namespace NewHorizon
                     treeNodeDeclared.DeclareObject = declareObject.Value;
                     treeNodeCollection.Add(treeNodeDeclared);
 
-                    TreeNode treeNodeInstanceParent = new TreeNode();
-                    treeNodeInstanceParent.Text = declareObject.Value.declareName;
+                    TreeNodeDeclared treeNodeInstanceParent = (TreeNodeDeclared)treeNodeDeclared.Clone();
+                    //两个treeview不能使用同一个treenode
+
                     instanceCollection.Add(treeNodeInstanceParent);
                     instanceParents.Add(declareObject.Value.declareName, treeNodeInstanceParent);
                 }
@@ -201,10 +202,42 @@ namespace NewHorizon
             FormInstance formInstance = new FormInstance(null);
             if(formInstance.ShowDialog() == DialogResult.OK)
             {
-
-
+                GameObject returnObject = formInstance.GameObject;
+                insertObject(returnObject);
             }
 
         }
+
+        private void insertObject(GameObject gameObject)
+        {
+            foreach (TreeNode treeNode in InstanceObjectTreeView.Nodes)
+            {
+                if (treeNode is TreeNodeDeclared)
+                {
+                    TreeNodeDeclared treeNodeDeclared = (TreeNodeDeclared)treeNode;
+
+                    if (treeNodeDeclared.DeclareObject == gameObject.DeclareObject)
+                    {
+                        TreeNodeInstanced treeNodeInstanced = new TreeNodeInstanced();
+                        treeNodeInstanced.InstanceObject = gameObject;
+                        treeNode.Nodes.Add(treeNodeInstanced);
+                    }
+                }
+
+            }
+        }
+
+        private void 保存项目SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (assetsPath.Length > 0)
+            {
+
+            }
+            else {
+                MessageBox.Show("未打开任何项目！", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        
     }
 }

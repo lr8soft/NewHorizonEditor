@@ -45,6 +45,8 @@ namespace NewHorizon
             transform.Scale = new Vector3(0.1f);
 
             GameObject = new GameObject(DeclareObject, instanceIndex.ToString(), transform);
+
+            instanceIndex++;
         }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
@@ -63,8 +65,12 @@ namespace NewHorizon
             if (selectedNode.Name == "value")
             {
                 string info = Interaction.InputBox("请输入新的值", "信息", selectedNode.Text, -1, -1);
-                selectedNode.Text = info;
-                UpdateObjectInfo();
+                if (info.Length > 0)
+                {
+                    selectedNode.Text = info;
+                    UpdateObjectInfo();
+                }
+
             }
 
         }

@@ -49,6 +49,7 @@
             this.编辑EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.撤销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重做ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.保存项目SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +82,8 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 39);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -91,14 +93,16 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.instanceObjectGroup);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 422);
-            this.splitContainer1.SplitterDistance = 258;
+            this.splitContainer1.Size = new System.Drawing.Size(1100, 591);
+            this.splitContainer1.SplitterDistance = 354;
+            this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -109,8 +113,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.treeView2);
-            this.splitContainer2.Size = new System.Drawing.Size(258, 422);
-            this.splitContainer2.SplitterDistance = 286;
+            this.splitContainer2.Size = new System.Drawing.Size(354, 591);
+            this.splitContainer2.SplitterDistance = 400;
+            this.splitContainer2.SplitterWidth = 6;
             this.splitContainer2.TabIndex = 0;
             // 
             // originObjectGroup
@@ -118,8 +123,10 @@
             this.originObjectGroup.Controls.Add(this.splitContainer3);
             this.originObjectGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.originObjectGroup.Location = new System.Drawing.Point(0, 0);
+            this.originObjectGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.originObjectGroup.Name = "originObjectGroup";
-            this.originObjectGroup.Size = new System.Drawing.Size(258, 286);
+            this.originObjectGroup.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.originObjectGroup.Size = new System.Drawing.Size(354, 400);
             this.originObjectGroup.TabIndex = 0;
             this.originObjectGroup.TabStop = false;
             this.originObjectGroup.Text = "声明物体";
@@ -127,7 +134,8 @@
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 21);
+            this.splitContainer3.Location = new System.Drawing.Point(4, 28);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -138,22 +146,25 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(252, 262);
-            this.splitContainer3.SplitterDistance = 207;
+            this.splitContainer3.Size = new System.Drawing.Size(346, 368);
+            this.splitContainer3.SplitterDistance = 290;
+            this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 0;
             // 
             // declareTreeView
             // 
             this.declareTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.declareTreeView.Location = new System.Drawing.Point(0, 0);
+            this.declareTreeView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.declareTreeView.Name = "declareTreeView";
-            this.declareTreeView.Size = new System.Drawing.Size(252, 207);
+            this.declareTreeView.Size = new System.Drawing.Size(346, 290);
             this.declareTreeView.TabIndex = 0;
             // 
             // splitContainer4
             // 
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer4.Name = "splitContainer4";
             // 
             // splitContainer4.Panel1
@@ -163,8 +174,9 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.buttonDeleteOrigin);
-            this.splitContainer4.Size = new System.Drawing.Size(252, 51);
-            this.splitContainer4.SplitterDistance = 115;
+            this.splitContainer4.Size = new System.Drawing.Size(346, 72);
+            this.splitContainer4.SplitterDistance = 157;
+            this.splitContainer4.SplitterWidth = 6;
             this.splitContainer4.TabIndex = 0;
             this.splitContainer4.Resize += new System.EventHandler(this.SplitContainerFixedWidth);
             // 
@@ -172,8 +184,9 @@
             // 
             this.buttonAddOrigin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonAddOrigin.Location = new System.Drawing.Point(0, 0);
+            this.buttonAddOrigin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddOrigin.Name = "buttonAddOrigin";
-            this.buttonAddOrigin.Size = new System.Drawing.Size(115, 51);
+            this.buttonAddOrigin.Size = new System.Drawing.Size(157, 72);
             this.buttonAddOrigin.TabIndex = 0;
             this.buttonAddOrigin.Text = "添加声明";
             this.buttonAddOrigin.UseVisualStyleBackColor = true;
@@ -182,8 +195,9 @@
             // 
             this.buttonDeleteOrigin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDeleteOrigin.Location = new System.Drawing.Point(0, 0);
+            this.buttonDeleteOrigin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDeleteOrigin.Name = "buttonDeleteOrigin";
-            this.buttonDeleteOrigin.Size = new System.Drawing.Size(133, 51);
+            this.buttonDeleteOrigin.Size = new System.Drawing.Size(183, 72);
             this.buttonDeleteOrigin.TabIndex = 0;
             this.buttonDeleteOrigin.Text = "删除声明";
             this.buttonDeleteOrigin.UseVisualStyleBackColor = true;
@@ -192,8 +206,9 @@
             // 
             this.treeView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView2.Location = new System.Drawing.Point(0, 0);
+            this.treeView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(258, 132);
+            this.treeView2.Size = new System.Drawing.Size(354, 185);
             this.treeView2.TabIndex = 0;
             // 
             // instanceObjectGroup
@@ -201,8 +216,10 @@
             this.instanceObjectGroup.Controls.Add(this.splitContainer5);
             this.instanceObjectGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.instanceObjectGroup.Location = new System.Drawing.Point(0, 0);
+            this.instanceObjectGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.instanceObjectGroup.Name = "instanceObjectGroup";
-            this.instanceObjectGroup.Size = new System.Drawing.Size(538, 422);
+            this.instanceObjectGroup.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.instanceObjectGroup.Size = new System.Drawing.Size(740, 591);
             this.instanceObjectGroup.TabIndex = 0;
             this.instanceObjectGroup.TabStop = false;
             this.instanceObjectGroup.Text = "实例化物体";
@@ -210,7 +227,8 @@
             // splitContainer5
             // 
             this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(3, 21);
+            this.splitContainer5.Location = new System.Drawing.Point(4, 28);
+            this.splitContainer5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer5.Name = "splitContainer5";
             this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -221,16 +239,18 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.splitContainer6);
-            this.splitContainer5.Size = new System.Drawing.Size(532, 398);
-            this.splitContainer5.SplitterDistance = 325;
+            this.splitContainer5.Size = new System.Drawing.Size(732, 559);
+            this.splitContainer5.SplitterDistance = 456;
+            this.splitContainer5.SplitterWidth = 6;
             this.splitContainer5.TabIndex = 0;
             // 
             // InstanceObjectTreeView
             // 
             this.InstanceObjectTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InstanceObjectTreeView.Location = new System.Drawing.Point(0, 0);
+            this.InstanceObjectTreeView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InstanceObjectTreeView.Name = "InstanceObjectTreeView";
-            this.InstanceObjectTreeView.Size = new System.Drawing.Size(532, 325);
+            this.InstanceObjectTreeView.Size = new System.Drawing.Size(732, 456);
             this.InstanceObjectTreeView.TabIndex = 0;
             this.InstanceObjectTreeView.DoubleClick += new System.EventHandler(this.InstanceObjectTreeView_DoubleClick);
             // 
@@ -238,6 +258,7 @@
             // 
             this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer6.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer6.Name = "splitContainer6";
             // 
             // splitContainer6.Panel1
@@ -249,8 +270,9 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.buttonDeleteInstance);
             this.splitContainer6.Panel2MinSize = 50;
-            this.splitContainer6.Size = new System.Drawing.Size(532, 69);
-            this.splitContainer6.SplitterDistance = 263;
+            this.splitContainer6.Size = new System.Drawing.Size(732, 97);
+            this.splitContainer6.SplitterDistance = 361;
+            this.splitContainer6.SplitterWidth = 6;
             this.splitContainer6.TabIndex = 0;
             this.splitContainer6.Resize += new System.EventHandler(this.SplitContainerFixedWidth);
             // 
@@ -258,8 +280,9 @@
             // 
             this.buttonAddInstance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonAddInstance.Location = new System.Drawing.Point(0, 0);
+            this.buttonAddInstance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddInstance.Name = "buttonAddInstance";
-            this.buttonAddInstance.Size = new System.Drawing.Size(263, 69);
+            this.buttonAddInstance.Size = new System.Drawing.Size(361, 97);
             this.buttonAddInstance.TabIndex = 0;
             this.buttonAddInstance.Text = "添加实例";
             this.buttonAddInstance.UseVisualStyleBackColor = true;
@@ -269,8 +292,9 @@
             // 
             this.buttonDeleteInstance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDeleteInstance.Location = new System.Drawing.Point(0, 0);
+            this.buttonDeleteInstance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDeleteInstance.Name = "buttonDeleteInstance";
-            this.buttonDeleteInstance.Size = new System.Drawing.Size(265, 69);
+            this.buttonDeleteInstance.Size = new System.Drawing.Size(365, 97);
             this.buttonDeleteInstance.TabIndex = 0;
             this.buttonDeleteInstance.Text = "删除实例";
             this.buttonDeleteInstance.UseVisualStyleBackColor = true;
@@ -283,22 +307,24 @@
             this.编辑EToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1100, 39);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 文件FToolStripMenuItem
             // 
             this.文件FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.打开OToolStripMenuItem});
+            this.打开OToolStripMenuItem,
+            this.保存项目SToolStripMenuItem});
             this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
-            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(91, 33);
             this.文件FToolStripMenuItem.Text = "文件(F)";
             // 
             // 打开OToolStripMenuItem
             // 
             this.打开OToolStripMenuItem.Name = "打开OToolStripMenuItem";
-            this.打开OToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.打开OToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
             this.打开OToolStripMenuItem.Text = "打开项目(O)";
             this.打开OToolStripMenuItem.Click += new System.EventHandler(this.打开OToolStripMenuItem_Click);
             // 
@@ -308,29 +334,37 @@
             this.撤销ToolStripMenuItem,
             this.重做ToolStripMenuItem});
             this.编辑EToolStripMenuItem.Name = "编辑EToolStripMenuItem";
-            this.编辑EToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.编辑EToolStripMenuItem.Size = new System.Drawing.Size(92, 33);
             this.编辑EToolStripMenuItem.Text = "编辑(E)";
             // 
             // 撤销ToolStripMenuItem
             // 
             this.撤销ToolStripMenuItem.Name = "撤销ToolStripMenuItem";
-            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.撤销ToolStripMenuItem.Size = new System.Drawing.Size(144, 34);
             this.撤销ToolStripMenuItem.Text = "撤销";
             // 
             // 重做ToolStripMenuItem
             // 
             this.重做ToolStripMenuItem.Name = "重做ToolStripMenuItem";
-            this.重做ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.重做ToolStripMenuItem.Size = new System.Drawing.Size(144, 34);
             this.重做ToolStripMenuItem.Text = "重做";
+            // 
+            // 保存项目SToolStripMenuItem
+            // 
+            this.保存项目SToolStripMenuItem.Name = "保存项目SToolStripMenuItem";
+            this.保存项目SToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.保存项目SToolStripMenuItem.Text = "保存项目(S)";
+            this.保存项目SToolStripMenuItem.Click += new System.EventHandler(this.保存项目SToolStripMenuItem_Click);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1100, 630);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.Text = "NewHorizon Editor";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -389,6 +423,7 @@
         public System.Windows.Forms.TreeView declareTreeView;
         public System.Windows.Forms.TreeView InstanceObjectTreeView;
         public System.Windows.Forms.TreeView treeView2;
+        private System.Windows.Forms.ToolStripMenuItem 保存项目SToolStripMenuItem;
     }
 }
 
