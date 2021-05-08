@@ -190,6 +190,7 @@
             this.buttonAddOrigin.TabIndex = 0;
             this.buttonAddOrigin.Text = "添加声明";
             this.buttonAddOrigin.UseVisualStyleBackColor = true;
+            this.buttonAddOrigin.Click += new System.EventHandler(this.buttonAddOrigin_Click);
             // 
             // buttonDeleteOrigin
             // 
@@ -201,6 +202,7 @@
             this.buttonDeleteOrigin.TabIndex = 0;
             this.buttonDeleteOrigin.Text = "删除声明";
             this.buttonDeleteOrigin.UseVisualStyleBackColor = true;
+            this.buttonDeleteOrigin.Click += new System.EventHandler(this.buttonDeleteOrigin_Click);
             // 
             // treeView2
             // 
@@ -298,6 +300,7 @@
             this.buttonDeleteInstance.TabIndex = 0;
             this.buttonDeleteInstance.Text = "删除实例";
             this.buttonDeleteInstance.UseVisualStyleBackColor = true;
+            this.buttonDeleteInstance.Click += new System.EventHandler(this.buttonDeleteInstance_Click);
             // 
             // menuStrip1
             // 
@@ -324,14 +327,14 @@
             // 打开OToolStripMenuItem
             // 
             this.打开OToolStripMenuItem.Name = "打开OToolStripMenuItem";
-            this.打开OToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.打开OToolStripMenuItem.Size = new System.Drawing.Size(217, 34);
             this.打开OToolStripMenuItem.Text = "打开项目(O)";
             this.打开OToolStripMenuItem.Click += new System.EventHandler(this.打开OToolStripMenuItem_Click);
             // 
             // 保存项目SToolStripMenuItem
             // 
             this.保存项目SToolStripMenuItem.Name = "保存项目SToolStripMenuItem";
-            this.保存项目SToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.保存项目SToolStripMenuItem.Size = new System.Drawing.Size(217, 34);
             this.保存项目SToolStripMenuItem.Text = "保存项目(S)";
             this.保存项目SToolStripMenuItem.Click += new System.EventHandler(this.保存项目SToolStripMenuItem_Click);
             // 

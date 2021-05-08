@@ -44,7 +44,7 @@ namespace NewHorizon
             transform.Rotation = new Vector3(0f);
             transform.Scale = new Vector3(0.1f);
 
-            GameObject = new GameObject(DeclareObject, instanceIndex.ToString(), transform);
+            GameObject = new GameObject(DeclareObject, DeclareObject.declareName + instanceIndex.ToString(), transform);
 
             instanceIndex++;
         }

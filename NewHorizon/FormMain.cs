@@ -126,7 +126,8 @@ namespace NewHorizon
                     treeNodeDeclared.DeclareObject = declareObject.Value;
                     treeNodeCollection.Add(treeNodeDeclared);
 
-                    TreeNodeDeclared treeNodeInstanceParent = (TreeNodeDeclared)treeNodeDeclared.Clone();
+                    TreeNodeDeclared treeNodeInstanceParent = new TreeNodeDeclared();
+                    treeNodeInstanceParent.DeclareObject = (DeclareObject)treeNodeDeclared.DeclareObject.Clone();
                     //两个treeview不能使用同一个treenode
 
                     instanceCollection.Add(treeNodeInstanceParent);
@@ -214,6 +215,31 @@ namespace NewHorizon
                 returnObject.DeclareObject = treeNodeDeclared.DeclareObject;
                 insertObject(returnObject);
             }
+
+        }
+
+        private void buttonDeleteInstance_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = InstanceObjectTreeView.SelectedNode;
+            if (selectedNode is TreeNodeInstanced)
+            {
+                TreeNode parentNode = selectedNode.Parent;
+                parentNode.Nodes.Remove(selectedNode);
+            }
+
+        }
+
+        private void buttonAddOrigin_Click(object sender, EventArgs e)
+        {
+            FormDeclare formDeclare = new FormDeclare(null);
+            if (formDeclare.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void buttonDeleteOrigin_Click(object sender, EventArgs e)
+        {
 
         }
 
@@ -345,6 +371,6 @@ namespace NewHorizon
             return transformJson;
         }
 
-        
+
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace NewHorizon.Util
 {
-    public class DeclareObject
+    public class DeclareObject: ICloneable
     {
         public string declareName;
         public string declareJsonPath;
@@ -18,12 +18,16 @@ namespace NewHorizon.Util
         public string shaderName { get; set; }
         public string scriptName { get; set; }
 
-        public DeclareObject(string declareName, string jsonPath)
+        public DeclareObject(string declareName, string jsonPath, bool readFromJson = true)
         {
             this.declareName = declareName;
             this.declareJsonPath = jsonPath;
 
-            LoadFromJson();
+            if (readFromJson)
+            {
+                LoadFromJson();
+            }
+
         }
 
         public void LoadFromJson()
@@ -44,5 +48,14 @@ namespace NewHorizon.Util
             }
         }
 
+        public object Clone()
+        {
+            DeclareObject declareObject = new DeclareObject(declareName, declareJsonPath, false);
+            declareObject.modelName = modelName;
+            declareObject.scriptName = scriptName;
+            declareObject.shaderName = shaderName;
+
+            return declareObject;
+        }
     }
 }
