@@ -199,10 +199,19 @@ namespace NewHorizon
                 return;
             }
 
+            if (!(selectedNode is TreeNodeDeclared))
+            {
+                MessageBox.Show("节点无法添加实例", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            TreeNodeDeclared treeNodeDeclared = (TreeNodeDeclared)selectedNode;
+
             FormInstance formInstance = new FormInstance(null);
             if(formInstance.ShowDialog() == DialogResult.OK)
             {
                 GameObject returnObject = formInstance.GameObject;
+                returnObject.DeclareObject = treeNodeDeclared.DeclareObject;
                 insertObject(returnObject);
             }
 
@@ -216,11 +225,12 @@ namespace NewHorizon
                 {
                     TreeNodeDeclared treeNodeDeclared = (TreeNodeDeclared)treeNode;
 
-                    if (treeNodeDeclared.DeclareObject == gameObject.DeclareObject)
+                    if (treeNodeDeclared.DeclareObject.declareName == gameObject.DeclareObject.declareName)
                     {
                         TreeNodeInstanced treeNodeInstanced = new TreeNodeInstanced();
                         treeNodeInstanced.InstanceObject = gameObject;
                         treeNode.Nodes.Add(treeNodeInstanced);
+                        return;
                     }
                 }
 
@@ -231,11 +241,108 @@ namespace NewHorizon
         {
             if (assetsPath.Length > 0)
             {
-
+                SaveInstanceJson();
             }
             else {
                 MessageBox.Show("未打开任何项目！", "信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void SaveInstanceJson()
+        {
+            JObject instanceObject = new JObject();
+            JObject objectDeclare = new JObject();
+            JArray objectContainer = new JArray();
+
+            instanceObject.Add("objectDeclare", objectDeclare);
+            objectDeclare.Add("object", objectContainer);
+
+            var declareNodes = NodeUtil.GetAllNodes(declareTreeView.Nodes);
+            foreach (var node in declareNodes)      //构建objectDeclare中的所有声明为JObject，组合为JArray
+            {
+                if (!(node is TreeNodeDeclared)) continue;
+
+                TreeNodeDeclared treeNodeDeclared = (TreeNodeDeclared)node;
+
+                JObject declareJson = new JObject();
+                declareJson.Add("objectName", treeNodeDeclared.DeclareObject.declareName);
+                declareJson.Add("objectJson", treeNodeDeclared.DeclareObject.declareJsonPath);
+
+                objectContainer.Add(declareJson);
+            }
+
+            JObject objectInstance = new JObject();
+            instanceObject.Add("objectInstance", objectInstance);
+
+            var instanceNodes = NodeUtil.GetAllNodes(InstanceObjectTreeView.Nodes);
+            //获得实例treeview的所有节点
+
+            Dictionary<string, JArray> instanceParentDict = new Dictionary<string, JArray>();
+            //所有的声明对象
+
+            foreach (var node in instanceNodes)
+            {
+                if (!(node is TreeNodeInstanced)) continue;
+
+                TreeNodeInstanced treeNodeInstanced = (TreeNodeInstanced)node;
+                GameObject gameObject = treeNodeInstanced.InstanceObject;
+
+                string declareName = gameObject.DeclareObject.declareName;
+                if (!instanceParentDict.ContainsKey(declareName))//如果字典里还没有对应的数组
+                {
+
+                    instanceParentDict[declareName] = new JArray();
+                    objectInstance.Add(declareName, instanceParentDict[declareName]);
+                }
+
+                JArray targetInstanceArray = instanceParentDict[declareName];   //即将要插入的Arrays
+
+                JObject instanceJson = new JObject();
+                instanceJson.Add("tagName", gameObject.TagName);
+
+                JObject transformJson = BuildTransformJson(gameObject.Transform);  //构建transform
+                instanceJson.Add("transform", transformJson);
+
+                targetInstanceArray.Add(instanceJson);  //把instance的json加入array
+
+            }
+
+            string instanceFilePath = assetsPath + "\\assets\\Config\\Instance.json";
+            try
+            {
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(instanceObject, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(instanceFilePath, output);
+            }
+            catch(Exception expt) {
+                MessageBox.Show(expt.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private JObject BuildTransformJson(Transform transform)
+        {
+            JObject transformJson = new JObject();
+
+            JArray position = new JArray();
+            position.Add(transform.Position.X);
+            position.Add(transform.Position.Y);
+            position.Add(transform.Position.Z);
+            transformJson.Add("position", position);
+
+            JArray rotation = new JArray();
+            rotation.Add(transform.Rotation.X);
+            rotation.Add(transform.Rotation.Y);
+            rotation.Add(transform.Rotation.Z);
+            transformJson.Add("rotation", rotation);
+
+            JArray scale = new JArray();
+            scale.Add(transform.Scale.X);
+            scale.Add(transform.Scale.Y);
+            scale.Add(transform.Scale.Z);
+            transformJson.Add("scale", scale);
+
+            return transformJson;
         }
 
         

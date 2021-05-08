@@ -77,7 +77,7 @@ namespace NewHorizon
 
         private void UpdateNodeInfo()
         {
-            var nodes = GetAllNodes(InstanceAttrTree.Nodes);
+            var nodes = NodeUtil.GetAllNodes(InstanceAttrTree.Nodes);
             foreach (TreeNode node in nodes)
             {
 
@@ -103,7 +103,7 @@ namespace NewHorizon
 
         private void UpdateObjectInfo()
         {
-            var nodes = GetAllNodes(InstanceAttrTree.Nodes);
+            var nodes = NodeUtil.GetAllNodes(InstanceAttrTree.Nodes);
             foreach (TreeNode node in nodes)
             {
                 if (node.Name == "value")
@@ -133,17 +133,6 @@ namespace NewHorizon
             }
         }
 
-        private List<TreeNode> GetAllNodes(TreeNodeCollection treeNodeCollection)
-        {
-            List<TreeNode> treeNodes = new List<TreeNode>();
-            foreach (TreeNode node in treeNodeCollection)
-            {
-                treeNodes.Add(node);
-                treeNodes.AddRange(GetAllNodes(node.Nodes));
-            }
-
-            return treeNodes;
-        }
 
         private void UpdateNodeFromTransform(string vectorName, string type, TreeNode valueNode)
         {

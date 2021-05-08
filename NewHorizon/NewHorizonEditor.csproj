@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Util\DeclareObject.cs" />
     <Compile Include="Util\GameObject.cs" />
+    <Compile Include="Util\NodeUtil.cs" />
     <Compile Include="Util\Transform.cs" />
     <Compile Include="Util\TreeNodeDeclared.cs" />
     <Compile Include="Util\TreeNodeInstanced.cs" />
