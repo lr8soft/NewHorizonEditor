@@ -159,6 +159,7 @@
             this.declareTreeView.Name = "declareTreeView";
             this.declareTreeView.Size = new System.Drawing.Size(346, 290);
             this.declareTreeView.TabIndex = 0;
+            this.declareTreeView.DoubleClick += new System.EventHandler(this.declareTreeView_DoubleClick);
             // 
             // splitContainer4
             // 

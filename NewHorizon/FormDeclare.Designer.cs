@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("class0");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("DeclareName", new System.Windows.Forms.TreeNode[] {
-            treeNode17});
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("cube.obj");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("ModelName", new System.Windows.Forms.TreeNode[] {
-            treeNode19});
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("default");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("ShaderName", new System.Windows.Forms.TreeNode[] {
-            treeNode21});
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("default.lua");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("ScriptName", new System.Windows.Forms.TreeNode[] {
-            treeNode23});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("declareObject");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("DeclareName", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("cube.obj");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("ModelName", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("default");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ShaderName", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("default.lua");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("ScriptName", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.DeclareAttrTreeview = new System.Windows.Forms.TreeView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.DeclareAttrTreeview = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -68,6 +68,36 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 598;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // DeclareAttrTreeview
+            // 
+            this.DeclareAttrTreeview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeclareAttrTreeview.Location = new System.Drawing.Point(0, 0);
+            this.DeclareAttrTreeview.Name = "DeclareAttrTreeview";
+            treeNode1.Name = "value";
+            treeNode1.Text = "declareObject";
+            treeNode2.Name = "TagName";
+            treeNode2.Text = "DeclareName";
+            treeNode3.Name = "value";
+            treeNode3.Text = "cube.obj";
+            treeNode4.Name = "modelName";
+            treeNode4.Text = "ModelName";
+            treeNode5.Name = "value";
+            treeNode5.Text = "default";
+            treeNode6.Name = "shaderName";
+            treeNode6.Text = "ShaderName";
+            treeNode7.Name = "value";
+            treeNode7.Text = "default.lua";
+            treeNode8.Name = "scriptName";
+            treeNode8.Text = "ScriptName";
+            this.DeclareAttrTreeview.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode4,
+            treeNode6,
+            treeNode8});
+            this.DeclareAttrTreeview.Size = new System.Drawing.Size(598, 450);
+            this.DeclareAttrTreeview.TabIndex = 0;
+            this.DeclareAttrTreeview.DoubleClick += new System.EventHandler(this.DeclareAttrTreeview_DoubleClick);
             // 
             // flowLayoutPanel1
             // 
@@ -103,35 +133,6 @@
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "取消";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // DeclareAttrTreeview
-            // 
-            this.DeclareAttrTreeview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeclareAttrTreeview.Location = new System.Drawing.Point(0, 0);
-            this.DeclareAttrTreeview.Name = "DeclareAttrTreeview";
-            treeNode17.Name = "value";
-            treeNode17.Text = "class0";
-            treeNode18.Name = "TagName";
-            treeNode18.Text = "DeclareName";
-            treeNode19.Name = "value";
-            treeNode19.Text = "cube.obj";
-            treeNode20.Name = "modelName";
-            treeNode20.Text = "ModelName";
-            treeNode21.Name = "value";
-            treeNode21.Text = "default";
-            treeNode22.Name = "shaderName";
-            treeNode22.Text = "ShaderName";
-            treeNode23.Name = "value";
-            treeNode23.Text = "default.lua";
-            treeNode24.Name = "scriptName";
-            treeNode24.Text = "ScriptName";
-            this.DeclareAttrTreeview.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode18,
-            treeNode20,
-            treeNode22,
-            treeNode24});
-            this.DeclareAttrTreeview.Size = new System.Drawing.Size(598, 450);
-            this.DeclareAttrTreeview.TabIndex = 0;
             // 
             // FormDeclare
             // 

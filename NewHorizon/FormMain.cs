@@ -234,13 +234,85 @@ namespace NewHorizon
             FormDeclare formDeclare = new FormDeclare(null);
             if (formDeclare.ShowDialog() == DialogResult.OK)
             {
+                if (haveSameDeclareName(formDeclare.DeclareObject.declareName))
+                {
+                    MessageBox.Show("declareName名称重复！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                TreeNodeDeclared treeNodeDeclared = new TreeNodeDeclared();
+                treeNodeDeclared.DeclareObject = formDeclare.DeclareObject;
+
+                declareTreeView.Nodes.Add(treeNodeDeclared);
+
+                updateInstanceParentNode("", treeNodeDeclared.DeclareObject);
+            }
+        }
+
+        private void declareTreeView_DoubleClick(object sender, EventArgs e)
+        {
+            TreeNode selectedNode = declareTreeView.SelectedNode;
+            if (selectedNode == null) return;
+
+            if (selectedNode is TreeNodeDeclared)
+            {
+                TreeNodeDeclared treeNodeDeclared = (TreeNodeDeclared)selectedNode;
+                FormDeclare formDeclare = new FormDeclare(treeNodeDeclared.DeclareObject);
+
+                string oldDeclareName = treeNodeDeclared.DeclareObject.declareName;
+                if (formDeclare.ShowDialog() == DialogResult.OK)
+                {
+                    if (!oldDeclareName.Equals(formDeclare.DeclareObject.declareName) && haveSameDeclareName(formDeclare.DeclareObject.declareName))
+                    {
+                        MessageBox.Show("declareName名称重复！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    treeNodeDeclared.DeclareObject = formDeclare.DeclareObject;
+
+                    updateInstanceParentNode(oldDeclareName, treeNodeDeclared.DeclareObject);
+                }
             }
         }
 
         private void buttonDeleteOrigin_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private bool haveSameDeclareName(string name)
+        {
+            foreach (TreeNode node in declareTreeView.Nodes)
+            {
+                if (node.Text.Equals(name))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void updateInstanceParentNode(string oldName, DeclareObject currentDeclareObject)
+        {
+            if (oldName.Equals(currentDeclareObject.declareName)) return;
+
+            if (oldName.Length > 0)
+            {
+                foreach (TreeNode treeNode in InstanceObjectTreeView.Nodes)
+                {
+                    if (treeNode.Text.Equals(oldName))
+                    {
+                        treeNode.Text = currentDeclareObject.declareName;
+                        return;
+                    }
+                }
+            }
+            else {
+                TreeNodeDeclared treeNode = new TreeNodeDeclared();
+                treeNode.DeclareObject = currentDeclareObject;
+                InstanceObjectTreeView.Nodes.Add(treeNode);
+            }
         }
 
         private void insertObject(GameObject gameObject)
